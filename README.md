@@ -1,69 +1,31 @@
-# React + TypeScript + Vite
+# Editable Data Table with Optimized Rendering
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+You are tasked with building a **high-performance editable data table** component in React using TypeScript. The table contains thousands of rows, and each cell should be editable inline.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Editable Cells
+- Clicking a cell switches it to an input field.
+- Pressing **Enter** saves the change.
+- Pressing **Esc** cancels the edit.
 
-## Expanding the ESLint configuration
+### Optimized Rendering
+- Only the **edited row** should re-render.
+- Unedited rows should not trigger a re-render when other rows are updated.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Type Safety
+- The table should be **generic over row types** using TypeScript.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Keyboard Navigation
+- Users should be able to navigate between cells using **arrow keys**.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Unit Tests
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Editing a cell** updates the correct row.
+2. **Esc key** cancels the edit.
+3. Only the **edited row re-renders** (can be tested using a render-count helper or mocked row components).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Branches
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `main`: Contains the solution completed within the **1-hour time limit**.  
+- `feature/complete`: Contains the **full working solution** with additional improvements and optimizations.
